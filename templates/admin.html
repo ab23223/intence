@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload New Album | Intence Media</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Bebas Kai';
+      src: url('static/fonts/BebasKai.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bebas Kai', sans-serif;
+      background: #191919;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 60px 20px 40px;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #111;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      border-bottom: 1px solid #333;
+    }
+
+    .navbar .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s ease;
+    }
+
+    .navbar a:hover {
+      color: #aaa;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .upload-box {
+      background: #222;
+      padding: 40px 50px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      margin-top: 30px;
+    }
+
+    label {
+      font-size: 1.5rem;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      padding: 15px 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    #status {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .upload-box {
+        padding: 30px 25px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="title">Intence Media</div>
+    <a href="/">← Back to Main Site</a>
+  </div>
+
+  <!-- Main Heading -->
+  <h1>Intence Media Upload</h1>
+
+  <!-- Upload Form Box -->
+  <div class="upload-box">
+    <form id="upload-form" enctype="multipart/form-data">
+      <label for="album_name">Album Name:</label>
+      <input type="text" id="album_name" name="album_name" required />
+
+      <label for="album_desc">Album Description:</label>
+      <textarea id="album_desc" name="album_desc" required></textarea>
+
+      <label for="imageInput">Select Images:</label>
+      <input id="imageInput" name="images" type="file" multiple accept="image/*" />
+
+      <button type="submit">Upload & Generate</button>
+    </form>
+  </div>
+
+  <!-- Status Output -->
+  <div id="status"></div>
+
+  <!-- JS Upload Logic -->
+  <script>
+    const CLOUD_NAME = 'dfqreujbo';
+    const UPLOAD_PRESET = 'intencemedia_unsigned';
+
+    async function uploadImageToCloudinary(file) {
+      const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', UPLOAD_PRESET);
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Upload failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        return data.secure_url;
+      } catch (err) {
+        console.error('Upload error:', err);
+        return null;
+      }
+    }
+
+    async function uploadAllImages(files) {
+      const uploadedUrls = [];
+      for (const file of files) {
+        document.getElementById('status').textContent = `Uploading ${file.name}...`;
+        const url = await uploadImageToCloudinary(file);
+        if (url) {
+          uploadedUrls.push(url);
+          console.log(`Uploaded ${file.name} successfully!`);
+        } else {
+          console.error(`Failed to upload ${file.name}`);
+        }
+      }
+      return uploadedUrls;
+    }
+
+    document.getElementById('upload-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const albumName = document.getElementById('album_name').value.trim();
+      const albumDesc = document.getElementById('album_desc').value.trim();
+      const files = document.getElementById('imageInput').files;
+
+      if (!albumName || !albumDesc || files.length === 0) {
+        alert('Please fill all fields and select at least one image.');
+        return;
+      }
+
+      document.getElementById('status').textContent = 'Uploading images...';
+
+      const uploadedUrls = await uploadAllImages(files);
+
+      if (uploadedUrls.length === 0) {
+        alert('No images uploaded. Try again.');
+        document.getElementById('status').textContent = 'Upload failed.';
+        return;
+      }
+
+      document.getElementById('status').textContent = 'Images uploaded! Creating album...';
+
+      try {
+        const res = await axios.post('/generate', {
+          album_name: albumName,
+          album_desc: albumDesc,
+          image_urls: uploadedUrls
+        });
+
+        if (res.data.success) {
+          document.getElementById('status').innerHTML = `
+            Album created!<br>
+            <a href="/static/albums/${res.data.filename}" target="_blank">View Album</a>
+          `;
+        } else {
+          document.getElementById('status').textContent = 'Album creation failed.';
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('status').textContent = 'Server error during album creation.';
+      }
+    });
+  </script>
+</body>
+</html>

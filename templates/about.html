@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="/static/assets/lightbox.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>About | Intence Media</title>
+    <meta name="description" content="About Intence Media — freelance photography based in Auckland, New Zealand. Find out who I am.">
+    <meta name="keywords" content="Intence Media, sports photography NZ, automotive photography, school sports photos, car photography, about, info, Intense Media, Intence Media NZ, Rugby Photography, Photography, freelance">
+    <meta name="author" content="Intence Media">
+    <link rel="canonical" href="https://ab23223.github.io/IntenceMedia/about">
+</head>
+<body>
+    <header class="navbar custom-nav">
+        <div class="nav-left">
+            <a href="/IntenceMedia/">Work</a>
+            <a href="contact">Contact</a>
+            <a href="about">About</a>
+        </div>
+        <div class="nav-center">
+            <a href="/IntenceMedia/">INTENCE MEDIA</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://instagram.com/intence.media" target="_blank">
+                <img src="https://www.citypng.com/public/uploads/preview/hd-square-white-instagram-logo-icon-png-701751695118869dhkjddwaed.png" alt="Instagram" style="width: 24px; height: 24px;">
+            </a>
+        </div>
+
+        <style>
+            /* Reset & Base */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+            body {
+            font-family: 'Bebas Kai', sans-serif;
+            background: #191919;
+            color: #fff;
+            line-height: 1.6;
+            }
+            h1, h2, h3 {
+            font-family: 'Bebas Kai', sans-serif;
+            letter-spacing: 1px;
+            }
+
+            @font-face {
+            font-family: 'Bebas Kai';
+            src: url('static/fonts/BebasKai.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            }
+
+
+            /* Navbar */
+            .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #191919;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            }
+
+            nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            }
+
+            nav a:hover {
+            color: #777;
+            }
+
+            /* Gallery Grid */
+            .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            }
+
+            .gallery-item {
+            overflow: hidden;
+            display: block;
+            }
+
+            .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            }
+
+            .gallery-item:hover img {
+            transform: scale(1.05);
+            }
+
+            /* Page Sections */
+            section {
+            padding: 60px 40px;
+            max-width: 900px;
+            margin: auto;
+            }
+
+            h1, h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            }
+
+            p {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 15px;
+            }
+
+            a {
+            color: #fff;
+            text-decoration: none;
+            }
+
+            a:hover {
+            opacity: 0.7;
+            }
+
+            /* Footer */
+            footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #fff;
+            border-top: 1px solid #eee;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 15px;
+                display: inline-block;
+                margin-top: 10px;
+            }
+            }
+
+
+            /* Custom Navbar Layout */
+            .custom-nav {
+            position: relative;
+            display: flex;
+            justify-content: flex-start; /* left align left nav */
+            align-items: center;
+            padding: 3rem 4rem;
+            }
+
+            /* Left nav stays flex */
+            .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            }
+
+            .nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+            user-select: none;
+            }
+
+            .nav-center a {
+            pointer-events: auto; /* make link clickable */
+            text-decoration: none;
+            color: white;
+            }
+
+            /* Right nav positioned right */
+            .nav-right {
+            margin-left: auto; /* push it all the way right */
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            }
+
+            .nav-right img {
+            font-size: 1.2rem;
+            vertical-align: middle;
+            transition: opacity 0.2s ease;
+            }
+            .nav-right img:hover {
+            opacity: 0.7;
+            color: #555;
+            }
+
+            /* 2 Column Cover Grid */
+            .gallery-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            }
+
+            .gallery-cover {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            }
+
+            .gallery-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+
+            .gallery-cover .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+            }
+
+
+            .gallery-cover:hover .overlay {
+            opacity: 1;
+            }
+
+            .section-heading {
+            text-align: center;
+            padding: 40px 0 10px;
+            }
+
+            .section-heading h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            }
+
+            /* Contact Page Layout */
+            .contact-container {
+            display: flex;
+            min-height: 80vh;
+            max-width: 1200px;
+            margin: 40px auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            background: transparent;
+            }
+
+            /* Left image takes half */
+            .contact-image {
+            flex: 1;
+            overflow: hidden;
+            }
+
+            .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            }
+
+
+            /* Right form section */
+            .contact-form-section {
+            flex: 1;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            }
+
+            .contact-form-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            }
+
+            .contact-form-section p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            }
+
+            /* Form styles */
+            .contact-form label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+            color: #fff;
+            font-size: 1.5rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            background-color: #222;
+            color: #eee;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+            border-color: transparent;
+            outline: none;
+            }
+
+            .contact-form textarea {
+            min-height: 120px;
+            }
+
+            .contact-form button {
+            width: 120px;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            }
+
+            .contact-form button:hover {
+            background: #333;
+            }
+
+            /* Contact info under form */
+            .contact-info {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+            }
+
+            .contact-info strong {
+            font-weight: 700;
+            }
+
+            .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            }
+
+            .contact-info a:hover {
+            text-decoration: underline;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 900px) {
+                .contact-container {
+                    flex-direction: column;
+                    margin: 20px;
+                }
+
+                .contact-image {
+                    height: 250px;
+                }
+
+                .contact-form-section {
+                    padding: 30px 20px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .custom-nav {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 1rem 2rem;
+                }
+
+                .nav-center {
+                    position: static;
+                    transform: none;
+                    font-size: 2rem;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+
+                .nav-left {
+                    order: 2; /* Move nav links after the center heading */
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .nav-right {
+                    order: 3; /* Instagram last */
+                    justify-content: center;
+                    margin-bottom: 10px;
+                }
+
+                .nav-right a img {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+
+        </style>
+
+    </header>
+
+
+  <section>
+    <h1>About Intence Media</h1>
+    <p>I’m Ashton, a 16-year-old photographer from Auckland. I run Intence Media, where I shoot a bit of everything — from school sports to cars and events. I’m all about capturing real moments and having fun with my work. Photography’s been a big part of my life, and I’m always keen to learn and try new things. .</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Intence Media. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

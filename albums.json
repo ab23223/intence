@@ -1,0 +1,33 @@
+[
+  {
+    "title": "First XV 14-06",
+    "desc": "Year 11 rugby team highlights",
+    "url": "/First-XV-14-06"
+  },
+  {
+    "title": "Training 15-05",
+    "desc": "Training session photos from May 15",
+    "url": "/Training-15-05"
+  },
+  {
+    "title": "Training 19-05",
+    "desc": "Training session photos from May 19",
+    "url": "/Training-19-05"
+  },
+  {
+    "title": "Choir 11-06",
+    "desc": "Choir event photos from June 11",
+    "url": "/Choir-11-06"
+  },
+  {
+    "title": "Category Sports",
+    "desc": "All sports related galleries",
+    "url": "/category-sports"
+  },
+  {
+    "title": "Category Automotive",
+    "desc": "All automotive related galleries",
+    "url": "/category-automotive"
+  }
+  // Add more pages similarly
+]

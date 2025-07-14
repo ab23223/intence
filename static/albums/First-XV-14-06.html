@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="/static/assets/lightbox.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>First XV vs De La Salle | Intence Media</title>
+    <meta name="description" content="Photos from Sacred Hearts 1st XV vs De La Salle, Intence Media — freelance photography based in Auckland, New Zealand.">
+    <meta name="keywords" content="Intence Media, sports photography NZ, automotive photography, school sports photos, car photography, New Zealand, Intense Media, Intence Media NZ, Rugby Photography, Photography, freelance, First 15, First XV">
+    <meta name="author" content="Intence Media">
+    <link rel="canonical" href="https://ab23223.github.io/IntenceMedia/First-XV-14-06">
+
+</head>
+<body>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Bebas Kai', sans-serif;
+      background: #191919;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Bebas Kai', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    @font-face {
+      font-family: 'Bebas Kai';
+      src: url('static/fonts/BebasKai.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #191919;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #777;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      display: block;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Page Sections */
+    section {
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1{
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+
+    /* Custom Navbar Layout */
+    .custom-nav {
+      position: relative;
+      display: flex;
+      justify-content: flex-start; /* left align left nav */
+      align-items: center;
+      padding: 3rem 4rem;
+    }
+
+    /* Left nav stays flex */
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      font-weight: bold;
+      user-select: none;
+    }
+    .nav-center a {
+      pointer-events: auto; /* make link clickable */
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Right nav positioned right */
+    .nav-right {
+      margin-left: auto; /* push it all the way right */
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-right img {
+      font-size: 1.2rem;
+      vertical-align: middle;
+      transition: opacity 0.2s ease;
+    }
+    .nav-right img:hover {
+      opacity: 0.7;
+      color: #555;
+    }
+
+    /* 2 Column Cover Grid */
+    .gallery-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+    .gallery-cover {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+    .gallery-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-cover .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .gallery-cover:hover .overlay {
+      opacity: 1;
+    }
+
+    .section-heading {
+      text-align: center;
+      padding: 40px 0 10px;
+    }
+    .section-heading h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Contact Page Layout */
+    .contact-container {
+      display: flex;
+      min-height: 80vh;
+      max-width: 1200px;
+      margin: 40px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    /* Left image takes half */
+    .contact-image {
+      flex: 1;
+      overflow: hidden;
+    }
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Right form section */
+    .contact-form-section {
+      flex: 1;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+    .contact-form-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-form-section p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Form styles */
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      background-color: #222;
+      color: #eee;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: transparent;
+      outline: none;
+    }
+    .contact-form textarea {
+      min-height: 120px;
+    }
+    .contact-form button {
+      width: 120px;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #333;
+    }
+
+    /* Contact info under form */
+    .contact-info {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .contact-info strong {
+      font-weight: 700;
+    }
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+        margin: 20px;
+      }
+      .contact-image {
+        height: 250px;
+      }
+      .contact-form-section {
+        padding: 30px 20px;
+      }
+    }
+
+        #gallery {
+      column-count: 3;
+      column-gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 20px;
+    }
+
+    #gallery img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      transition: transform 0.3s ease;
+    }
+
+    #gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 1024px) {
+      #gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #gallery {
+        column-count: 1;
+      }
+    }
+
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    /* Lightbox base container */
+    #lightbox {
+      display: none;                 /* hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;                  /* prevent horizontal scrolling */
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      overflow: hidden;
+    }
+
+    /* Make visible when active */
+    #lightbox.active {
+      display: flex;
+    }
+
+    /* Lightbox image styling */
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      z-index: 10002;
+    }
+
+    /* Lightbox arrows (hidden by default) */
+    #lightbox-prev,
+    #lightbox-next {
+      display: none;
+    }
+
+    /* Show arrows only when active */
+    #lightbox.active #lightbox-prev,
+    #lightbox.active #lightbox-next {
+      display: block;
+    }
+
+    /* Arrow buttons styling */
+    #lightbox-prev,
+    #lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      padding: 0 15px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10003;
+    }
+
+    #lightbox-prev {
+      left: 20px;
+    }
+
+    #lightbox-next {
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .custom-nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .nav-center {
+        position: static;
+        transform: none;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .nav-left {
+        order: 2; /* Move nav links after the center heading */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .nav-right {
+        order: 3; /* Instagram last */
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .nav-right a img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    /* Gallery image sizing and optimization */
+    #gallery img {
+      width: 428px;
+      height: 224px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      transition: transform 0.3s ease;
+      border-radius: 6px;
+    }
+
+    /* Responsive resizing on mobile */
+    @media (max-width: 600px) {
+      #gallery img {
+        width: 350px;
+        height: 183px;
+      }
+    }
+  </style>
+
+  <header class="navbar custom-nav">
+    <div class="nav-left">
+      <a href="/IntenceMedia/">Work</a>
+      <a href="contact">Contact</a>
+      <a href="about">About</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="/IntenceMedia/">INTENCE MEDIA</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="https://instagram.com/intence.media" target="_blank">
+        <img src="https://www.citypng.com/public/uploads/preview/hd-square-white-instagram-logo-icon-png-701751695118869dhkjddwaed.png" alt="Instagram" style="width: 24px; height: 24px;">
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h1>First XV vs De La Salle</h1>
+    <p>Gameplay from Sacred Hearts First XV vs De La Salle.</p>
+  </section>
+
+  <h2>Gallery</h2>
+  <div id="gallery"></div>
+
+  <script>
+    // Replace these URLs with your actual Cloudinary image links
+    const images = [
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120017/FirstXV14-06/Lightroom_-_IMG_8671_ppemfg.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120019/FirstXV14-06/Lightroom_-_IMG_8672_sp5mgd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120019/FirstXV14-06/Lightroom_-_IMG_8675_c3ysfx.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120022/FirstXV14-06/Lightroom_-_IMG_8676_rmnaur.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120024/FirstXV14-06/Lightroom_-_IMG_8677_e1g2xn.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120026/FirstXV14-06/Lightroom_-_IMG_8678_xbhpvp.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120029/FirstXV14-06/Lightroom_-_IMG_8679_a2wuvb.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120032/FirstXV14-06/Lightroom_-_IMG_8680_tcrw9r.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120034/FirstXV14-06/Lightroom_-_IMG_8681_somxxe.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120038/FirstXV14-06/Lightroom_-_IMG_8682_rayq8o.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120041/FirstXV14-06/Lightroom_-_IMG_8684_fbdyk0.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120044/FirstXV14-06/Lightroom_-_IMG_8685_b1jbp7.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120047/FirstXV14-06/Lightroom_-_IMG_8686_b2zmzt.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120048/FirstXV14-06/Lightroom_-_IMG_8687_ulpalm.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120052/FirstXV14-06/Lightroom_-_IMG_8688_x0bkq2.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120057/FirstXV14-06/Lightroom_-_IMG_8689_xul7ml.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120056/FirstXV14-06/Lightroom_-_IMG_8690_saxdlo.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120059/FirstXV14-06/Lightroom_-_IMG_8691_y5n6wh.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120062/FirstXV14-06/Lightroom_-_IMG_8692_s5bvdk.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120069/FirstXV14-06/Lightroom_-_IMG_8693_ytphvt.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120068/FirstXV14-06/Lightroom_-_IMG_8694_hybwfs.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120086/FirstXV14-06/Lightroom_-_IMG_8695_p2xo7w.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120081/FirstXV14-06/Lightroom_-_IMG_8696_q5bzhe.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120076/FirstXV14-06/Lightroom_-_IMG_8697_wgolzd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120079/FirstXV14-06/Lightroom_-_IMG_8698_la3o56.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120082/FirstXV14-06/Lightroom_-_IMG_8699_rxeqqs.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120083/FirstXV14-06/Lightroom_-_IMG_8700_rb6ryg.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120088/FirstXV14-06/Lightroom_-_IMG_8701_yfincy.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120094/FirstXV14-06/Lightroom_-_IMG_8702_tb4kmt.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120094/FirstXV14-06/Lightroom_-_IMG_8703_usemxy.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120098/FirstXV14-06/Lightroom_-_IMG_8704_sknp8o.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120102/FirstXV14-06/Lightroom_-_IMG_8705_o1obqn.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120107/FirstXV14-06/Lightroom_-_IMG_8706_pjtasi.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120110/FirstXV14-06/Lightroom_-_IMG_8707_snzdjz.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120109/FirstXV14-06/Lightroom_-_IMG_8708_vhnvy8.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120116/FirstXV14-06/Lightroom_-_IMG_8709_tcqo47.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120115/FirstXV14-06/Lightroom_-_IMG_8710_blrxo4.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120121/FirstXV14-06/Lightroom_-_IMG_8711_eulo0m.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120126/FirstXV14-06/Lightroom_-_IMG_8712_rpbmiq.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120129/FirstXV14-06/Lightroom_-_IMG_8714_ejpep7.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120127/FirstXV14-06/Lightroom_-_IMG_8715_f9ya9j.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120131/FirstXV14-06/Lightroom_-_IMG_8716_dvinpp.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120138/FirstXV14-06/Lightroom_-_IMG_8717_lbkj24.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120146/FirstXV14-06/Lightroom_-_IMG_8718_webu7r.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120143/FirstXV14-06/Lightroom_-_IMG_8719_byv2be.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120146/FirstXV14-06/Lightroom_-_IMG_8720_l50sqb.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120157/FirstXV14-06/Lightroom_-_IMG_8721_wqtcoi.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120151/FirstXV14-06/Lightroom_-_IMG_8722_iknhak.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120157/FirstXV14-06/Lightroom_-_IMG_8723_kst8nc.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120163/FirstXV14-06/Lightroom_-_IMG_8724_hboggn.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120162/FirstXV14-06/Lightroom_-_IMG_8725_ledtf8.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120171/FirstXV14-06/Lightroom_-_IMG_8726_mu6mok.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120166/FirstXV14-06/Lightroom_-_IMG_8727_ber5na.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120172/FirstXV14-06/Lightroom_-_IMG_8728_a3hfjd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120176/FirstXV14-06/Lightroom_-_IMG_8729_zq7pvt.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120175/FirstXV14-06/Lightroom_-_IMG_8730_nykuzq.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120183/FirstXV14-06/Lightroom_-_IMG_8731_lhbrpr.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120183/FirstXV14-06/Lightroom_-_IMG_8732_tjikdp.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120188/FirstXV14-06/Lightroom_-_IMG_8733_fgc8yz.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120190/FirstXV14-06/Lightroom_-_IMG_8734_i65zgn.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120195/FirstXV14-06/Lightroom_-_IMG_8735_spkzfd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120198/FirstXV14-06/Lightroom_-_IMG_8736_oovvm5.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120197/FirstXV14-06/Lightroom_-_IMG_8737_kittdl.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120201/FirstXV14-06/Lightroom_-_IMG_8738_oi9tp1.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120208/FirstXV14-06/Lightroom_-_IMG_8739_x5l1sg.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120209/FirstXV14-06/Lightroom_-_IMG_8740_iyem5q.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120209/FirstXV14-06/Lightroom_-_IMG_8741_pbc5mg.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120212/FirstXV14-06/Lightroom_-_IMG_8742_pxloks.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120216/FirstXV14-06/Lightroom_-_IMG_8743_hdo9dg.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120220/FirstXV14-06/Lightroom_-_IMG_8744_ii81rd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120222/FirstXV14-06/Lightroom_-_IMG_8745_imehbw.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120223/FirstXV14-06/Lightroom_-_IMG_8746_uyyfzj.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120230/FirstXV14-06/Lightroom_-_IMG_8747_o0beax.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120231/FirstXV14-06/Lightroom_-_IMG_8748_whlgeh.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120233/FirstXV14-06/Lightroom_-_IMG_8749_vyhboe.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120239/FirstXV14-06/Lightroom_-_IMG_8750_tqrf1w.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120242/FirstXV14-06/Lightroom_-_IMG_8751_but9hj.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120243/FirstXV14-06/Lightroom_-_IMG_8752_yiyxax.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120247/FirstXV14-06/Lightroom_-_IMG_8753_r4vihz.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120252/FirstXV14-06/Lightroom_-_IMG_8755_xcc7j6.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120256/FirstXV14-06/Lightroom_-_IMG_8756_kzbeso.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120259/FirstXV14-06/Lightroom_-_IMG_8758_e5be9f.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120261/FirstXV14-06/Lightroom_-_IMG_8759_iykdru.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120266/FirstXV14-06/Lightroom_-_IMG_8760_yrjjiq.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120270/FirstXV14-06/Lightroom_-_IMG_8764_pokejr.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120271/FirstXV14-06/Lightroom_-_IMG_8765_jvywje.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120276/FirstXV14-06/Lightroom_-_IMG_8766_z6mand.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120281/FirstXV14-06/Lightroom_-_IMG_8767_srjvhi.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120280/FirstXV14-06/Lightroom_-_IMG_8768_ywqgzj.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120284/FirstXV14-06/Lightroom_-_IMG_8770_dy0n8k.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120292/FirstXV14-06/Lightroom_-_IMG_8771_kb9g3b.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120298/FirstXV14-06/Lightroom_-_IMG_8772_remmof.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120294/FirstXV14-06/Lightroom_-_IMG_8773_ecygm6.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120298/FirstXV14-06/Lightroom_-_IMG_8774_zihbdo.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120301/FirstXV14-06/Lightroom_-_IMG_8775_vn53au.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120307/FirstXV14-06/Lightroom_-_IMG_8776_mtev50.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120312/FirstXV14-06/Lightroom_-_IMG_8777_bl41zj.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120310/FirstXV14-06/Lightroom_-_IMG_8778_w3vohd.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120320/FirstXV14-06/Lightroom_-_IMG_8780_jk5dkf.jpg",
+        "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120320/FirstXV14-06/Lightroom_-_IMG_8781_dnifag.jpg"
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    images.forEach(url => {
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('data-lightbox', 'gallery');
+
+      const img = document.createElement('img');
+      const transformedUrl = url.replace('/upload/', '/upload/w_428,h_224,c_fill,f_auto,q_auto/');
+      img.src = transformedUrl;
+      img.alt = 'Gallery Image';
+      img.width = 428;
+      img.height = 224;
+      img.loading = 'lazy';
+      img.style.margin = '10px';
+      img.style.objectFit = 'cover';
+
+      link.appendChild(img);
+      gallery.appendChild(link);
+    });
+
+    function setupLightbox() {
+      const links = gallery.querySelectorAll('a[data-lightbox]');
+      let imagesList = Array.from(links).map(link => link.href);
+      let currentIndex = 0;
+
+      const lightboxContainer = document.createElement('div');
+      const lightboxImage = document.createElement('img');
+      const prevBtn = document.createElement('button');
+      const nextBtn = document.createElement('button');
+
+      lightboxContainer.id = 'lightbox';
+      prevBtn.id = 'lightbox-prev';
+      nextBtn.id = 'lightbox-next';
+
+      prevBtn.textContent = '‹';
+      nextBtn.textContent = '›';
+
+      [prevBtn, nextBtn].forEach(btn => {
+        btn.style.position = 'absolute';
+        btn.style.top = '50%';
+        btn.style.transform = 'translateY(-50%)';
+        btn.style.fontSize = '3rem';
+        btn.style.color = '#fff';
+        btn.style.background = 'rgba(0,0,0,0.3)';
+        btn.style.border = 'none';
+        btn.style.padding = '0 15px';
+        btn.style.cursor = 'pointer';
+        btn.style.userSelect = 'none';
+        btn.style.zIndex = '10001';
+      });
+
+      prevBtn.style.left = '20px';
+      nextBtn.style.right = '20px';
+
+      lightboxContainer.appendChild(lightboxImage);
+      lightboxContainer.appendChild(prevBtn);
+      lightboxContainer.appendChild(nextBtn);
+      document.body.appendChild(lightboxContainer);
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImage.src = imagesList[currentIndex].replace('/upload/', '/upload/w_1600,q_auto,f_auto/');
+        lightboxContainer.classList.add('active');
+      }
+
+      function closeLightbox() {
+        lightboxContainer.classList.remove('active');
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+        lightboxImage.src = imagesList[currentIndex];
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % imagesList.length;
+        lightboxImage.src = imagesList[currentIndex];
+      }
+
+      links.forEach((link, index) => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      });
+
+      lightboxContainer.addEventListener('click', e => {
+        if (e.target === lightboxContainer) {
+          closeLightbox();
+        }
+      });
+
+      prevBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        showPrev();
+      });
+
+      nextBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        showNext();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (!lightboxContainer.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') showPrev();
+        else if (e.key === 'ArrowRight') showNext();
+        else if (e.key === 'Escape') closeLightbox();
+      });
+
+      lightboxContainer.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      lightboxContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > 50) {
+          if (swipeDistance > 0) showPrev();
+          else showNext();
+        }
+      });
+    }
+
+    setupLightbox();
+  </script>
+  
+  <footer>
+    <p>&copy; 2025 Intence Media. All rights reserved.</p>
+  </footer>
+</body>
+</html>

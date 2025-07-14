@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training 15/05 | Intence Media</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="/static/assets/lightbox.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Bebas Kai', sans-serif;
+      background: #191919;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Bebas Kai', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    @font-face {
+      font-family: 'Bebas Kai';
+      src: url('static/fonts/BebasKai.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #191919;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #777;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      display: block;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Page Sections */
+    section {
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1{
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+
+    /* Custom Navbar Layout */
+    .custom-nav {
+      position: relative;
+      display: flex;
+      justify-content: flex-start; /* left align left nav */
+      align-items: center;
+      padding: 3rem 4rem;
+    }
+
+    /* Left nav stays flex */
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      font-weight: bold;
+      user-select: none;
+    }
+    .nav-center a {
+      pointer-events: auto; /* make link clickable */
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Right nav positioned right */
+    .nav-right {
+      margin-left: auto; /* push it all the way right */
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-right img {
+      font-size: 1.2rem;
+      vertical-align: middle;
+      transition: opacity 0.2s ease;
+    }
+    .nav-right img:hover {
+      opacity: 0.7;
+      color: #555;
+    }
+
+    /* 2 Column Cover Grid */
+    .gallery-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+    .gallery-cover {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+    .gallery-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-cover .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .gallery-cover:hover .overlay {
+      opacity: 1;
+    }
+
+    .section-heading {
+      text-align: center;
+      padding: 40px 0 10px;
+    }
+    .section-heading h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Contact Page Layout */
+    .contact-container {
+      display: flex;
+      min-height: 80vh;
+      max-width: 1200px;
+      margin: 40px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    /* Left image takes half */
+    .contact-image {
+      flex: 1;
+      overflow: hidden;
+    }
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Right form section */
+    .contact-form-section {
+      flex: 1;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+    .contact-form-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-form-section p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Form styles */
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      background-color: #222;
+      color: #eee;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: transparent;
+      outline: none;
+    }
+    .contact-form textarea {
+      min-height: 120px;
+    }
+    .contact-form button {
+      width: 120px;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #333;
+    }
+
+    /* Contact info under form */
+    .contact-info {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .contact-info strong {
+      font-weight: 700;
+    }
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+        margin: 20px;
+      }
+      .contact-image {
+        height: 250px;
+      }
+      .contact-form-section {
+        padding: 30px 20px;
+      }
+    }
+
+        #gallery {
+      column-count: 3;
+      column-gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 20px;
+    }
+
+    #gallery img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      transition: transform 0.3s ease;
+    }
+
+    #gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 1024px) {
+      #gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #gallery {
+        column-count: 1;
+      }
+    }
+
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    /* Lightbox base container */
+    #lightbox {
+      display: none;                 /* hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;                  /* prevent horizontal scrolling */
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      overflow: hidden;
+    }
+
+    /* Make visible when active */
+    #lightbox.active {
+      display: flex;
+    }
+
+    /* Lightbox image styling */
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      z-index: 10002;
+    }
+
+    /* Lightbox arrows (hidden by default) */
+    #lightbox-prev,
+    #lightbox-next {
+      display: none;
+    }
+
+    /* Show arrows only when active */
+    #lightbox.active #lightbox-prev,
+    #lightbox.active #lightbox-next {
+      display: block;
+    }
+
+    /* Arrow buttons styling */
+    #lightbox-prev,
+    #lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      padding: 0 15px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10003;
+    }
+
+    #lightbox-prev {
+      left: 20px;
+    }
+
+    #lightbox-next {
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .custom-nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .nav-center {
+        position: static;
+        transform: none;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .nav-left {
+        order: 2; /* Move nav links after the center heading */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .nav-right {
+        order: 3; /* Instagram last */
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .nav-right a img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    /* Gallery image sizing and optimization */
+    #gallery img {
+      width: 428px;
+      height: 224px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      transition: transform 0.3s ease;
+      border-radius: 6px;
+    }
+
+    /* Responsive resizing on mobile */
+    @media (max-width: 600px) {
+      #gallery img {
+        width: 350px;
+        height: 183px;
+      }
+    }
+  </style>
+
+  <header class="navbar custom-nav">
+    <div class="nav-left">
+      <a href="/IntenceMedia/">Work</a>
+      <a href="contact">Contact</a>
+      <a href="about">About</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="/IntenceMedia/">INTENCE MEDIA</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="https://instagram.com/intence.media" target="_blank">
+        <img src="https://www.citypng.com/public/uploads/preview/hd-square-white-instagram-logo-icon-png-701751695118869dhkjddwaed.png" alt="Instagram" style="width: 24px; height: 24px;">
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h1>Training 15/05</h1>
+    <p>Galley of the captured high-energy moments from on the field.</p>
+  </section>
+
+  <h2>Gallery</h2>
+  <div id="gallery"></div>
+
+  <script>
+    const images = [
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696937/Training%2015-05/aypt0tzibovlhuebx6ys.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/b5v3s6m2bexdkqniov6d.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696942/Training%2015-05/b6hepju3ecaewj1dsoqv.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696927/Training%2015-05/bi0ke1fialmghpihgts3.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696921/Training%2015-05/buygroen4hvvydqbtjqb.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696938/Training%2015-05/couyukfpidx6n7mycip4.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696917/Training%2015-05/cqmmcb1ofthbhf8k0vzh.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696938/Training%2015-05/cvrrwwubvcrpv0rkfbs7.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696936/Training%2015-05/cwb5ult59hcosalnugpd.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696936/Training%2015-05/dfea0iq3tiskjs6jzcoz.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/g4k8ffkiuyyuebfxfdpk.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696920/Training%2015-05/g6debmtovt7maa3qxtgr.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696926/Training%2015-05/hm3ooo2ft4xubyvo6kbu.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/hnoabqlbxlftezhx8gqf.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696937/Training%2015-05/iogq8z00fffed3etgexy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/iuliccei5gjuyxpnyk7g.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696932/Training%2015-05/ivolpyksg6zd9cz5uihi.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696920/Training%2015-05/jccqfq2qcivkennfrpam.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696931/Training%2015-05/mupnebcpdixxgki9wiww.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696922/Training%2015-05/nyvcrytuazfgjo6lvpjg.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696943/Training%2015-05/pbulbr4czshaf0tkiihh.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696924/Training%2015-05/ppvgnmgxye0h1te6w7yt.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/prbn9h9v1xrstgn8jjh9.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696921/Training%2015-05/r3gqxsrvglx36hkhvczj.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696940/Training%2015-05/srepprqasfcvb2bqfmwl.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696922/Training%2015-05/swo7gkha0okxuxxrgk5p.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696919/Training%2015-05/t52mtw0gpr0gvvsrgjwf.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696929/Training%2015-05/thzwjukqjgwsb8v1reya.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/tt2ncn3t0zalr66wafjx.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696941/Training%2015-05/uae97ikgswlnpdzqrszr.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696932/Training%2015-05/vfmvmycctn3rwih9lzf1.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696945/Training%2015-05/vml7wuy1qojwvegeikmy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696928/Training%2015-05/vzbk9fdnepwoep5qnrop.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696942/Training%2015-05/wiogu7gzbf4im5qaxqkd.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696934/Training%2015-05/wiu6de9qlb1k93mthcgt.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696926/Training%2015-05/wqjeoz3ujxwauowikdzc.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696925/Training%2015-05/x5nenmbn9bgxe2estulg.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696929/Training%2015-05/xd6simief7rkhtwnikoy.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696939/Training%2015-05/xriuk7ywuioy0drxvk0w.jpg",
+      "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696928/Training%2015-05/yfjg2bq27euszv2bbrkg.jpg"
+    ];
+
+  const gallery = document.getElementById('gallery');
+
+  images.forEach((url) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('data-lightbox', 'gallery');
+
+    const img = document.createElement('img');
+    const transformedUrl = url.replace('/upload/', '/upload/w_428,h_224,c_fill,f_auto,q_auto/');
+    img.src = transformedUrl;
+    img.alt = 'Gallery Image';
+    img.width = 428;
+    img.height = 224;
+    img.loading = 'lazy';
+    img.style.margin = '10px';
+    img.style.objectFit = 'cover';
+
+    link.appendChild(img);
+    gallery.appendChild(link);
+  });
+
+  // Lightbox logic
+  const lightboxContainer = document.createElement('div');
+  lightboxContainer.id = 'lightbox';
+  lightboxContainer.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    display: none;
+  `;
+
+  const lightboxImage = document.createElement('img');
+  lightboxImage.style.maxWidth = '90vw';
+  lightboxImage.style.maxHeight = '90vh';
+  lightboxContainer.appendChild(lightboxImage);
+
+  const prevBtn = document.createElement('button');
+  const nextBtn = document.createElement('button');
+  prevBtn.textContent = '‹';
+  nextBtn.textContent = '›';
+  [prevBtn, nextBtn].forEach(btn => {
+    btn.style.position = 'absolute';
+    btn.style.top = '50%';
+    btn.style.transform = 'translateY(-50%)';
+    btn.style.fontSize = '3rem';
+    btn.style.color = '#fff';
+    btn.style.background = 'rgba(0,0,0,0.3)';
+    btn.style.border = 'none';
+    btn.style.padding = '0 15px';
+    btn.style.cursor = 'pointer';
+    btn.style.zIndex = '10001';
+  });
+  prevBtn.style.left = '20px';
+  nextBtn.style.right = '20px';
+
+  lightboxContainer.appendChild(prevBtn);
+  lightboxContainer.appendChild(nextBtn);
+  document.body.appendChild(lightboxContainer);
+
+  const links = gallery.querySelectorAll('a[data-lightbox]');
+  const imagesList = Array.from(links).map(link => link.href);
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImage.src = imagesList[currentIndex].replace('/upload/', '/upload/w_1600,q_auto,f_auto/');
+    lightboxContainer.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    lightboxContainer.style.display = 'none';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+    lightboxImage.src = imagesList[currentIndex];
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % imagesList.length;
+    lightboxImage.src = imagesList[currentIndex];
+  }
+
+  links.forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  lightboxContainer.addEventListener('click', (e) => {
+    if (e.target === lightboxContainer) closeLightbox();
+  });
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrev();
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNext();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightboxContainer.style.display !== 'flex') return;
+
+    if (e.key === 'ArrowLeft') showPrev();
+    else if (e.key === 'ArrowRight') showNext();
+    else if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  lightboxContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightboxContainer.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? showPrev() : showNext();
+    }
+  });
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Intence Media. All rights reserved.</p>
+  </footer>
+</body>
+</html>
