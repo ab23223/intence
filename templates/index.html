@@ -360,17 +360,16 @@
     </header>
 
     <main class="gallery-2col">
-        <div class="gallery-2col">
-        {% for album in album_files %}
-            <div class="gallery-cover">
-            <a href="/albums/{{ album }}">
-                <img src="/static/albums/{{ album | replace('.html', '.jpg') }}" alt="{{ album }}">
-                <div class="overlay">{{ album.replace('_', ' ')[:-5] }}</div>
+        {% for album in albums %}
+        <div class="gallery-cover">
+            <a href="{{ album.url }}">
+            <img src="{{ album.cover_url if album.cover_url else '/static/default_cover.jpg' }}" alt="{{ album.title }}">
+            <div class="overlay">{{ album.title }}</div>
             </a>
-            </div>
-        {% endfor %}
         </div>
-    <!-- Add more covers as needed -->
+        {% endfor %}
+    </main>
+
     </main>
 
     <footer>

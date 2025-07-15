@@ -2,22 +2,26 @@
   {
     "title": "First XV 14-06",
     "desc": "Year 11 rugby team highlights",
-    "url": "/First-XV-14-06"
+    "url": "/First-XV-14-06",
+    "cover_url": "https://res.cloudinary.com/dfqreujbo/image/upload/v1750120017/FirstXV14-06/Lightroom_-_IMG_8671_ppemfg.jpg"
   },
   {
     "title": "Training 15-05",
     "desc": "Training session photos from May 15",
-    "url": "/Training-15-05"
+    "url": "/Training-15-05",
+    "cover_url": "https://res.cloudinary.com/dfqreujbo/image/upload/v1747696937/Training%2015-05/aypt0tzibovlhuebx6ys.jpg"
   },
   {
     "title": "Training 19-05",
     "desc": "Training session photos from May 19",
-    "url": "/Training-19-05"
+    "url": "/Training-19-05",
+    "cover_url": "https://res.cloudinary.com/dfqreujbo/image/upload/v1747706481/Training%2019-05/-11.jpg"
   },
   {
     "title": "Choir 11-06",
     "desc": "Choir event photos from June 11",
-    "url": "/Choir-11-06"
+    "url": "/Choir-11-06",
+    "cover_url": "https://res.cloudinary.com/dfqreujbo/image/upload/v1749692296/Choir%2011-06/10.jpg"
   },
   {
     "title": "Category Sports",
@@ -29,5 +33,4 @@
     "desc": "All automotive related galleries",
     "url": "/category-automotive"
   }
-  // Add more pages similarly
 ]
